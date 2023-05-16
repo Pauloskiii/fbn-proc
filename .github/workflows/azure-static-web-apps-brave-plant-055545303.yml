@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
+      - name: Build
+        run: 'npm run build-prod:ci'
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -32,6 +34,7 @@ jobs:
           output_location: "build" # Built app content directory - optional
           app_build_command: 'npm run build-prod'
           api_build_command: 'npm run build-api-prod'
+          
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
