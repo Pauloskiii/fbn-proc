@@ -35,11 +35,15 @@ th, td{
 }
 
 .side-nav-height{
-  height: 90%;
+  height: 85%;
 }
 
 .input-width{
   width: 550px;
+}
+
+.input-width-half{
+  width: 265px;
 }
 
 .w-textarea{

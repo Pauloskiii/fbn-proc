@@ -1,0 +1,21 @@
+{
+  "build": {
+    "outputPath": "build",
+    "command": "npm run build",
+    "args": ["--if-present", "--legacy-peer-deps"],
+    "environmenVariables": {
+      "CI": "true"
+    }
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "statusCode": 404
+  }
+}
