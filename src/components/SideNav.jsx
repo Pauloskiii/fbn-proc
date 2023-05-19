@@ -95,7 +95,7 @@ const SideNav = ({ itemNum }) => {
               <Link key={index} to={item.link}>
                 <div
                   className={`nav-items flex mb-4 p-2 border-rounded ${
-                    index === itemNum ? "active" : ""
+                    index == itemNum ? "active" : ""
                   }`}
                 >
                   {item.icon}
