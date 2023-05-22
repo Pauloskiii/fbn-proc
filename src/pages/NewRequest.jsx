@@ -12,7 +12,7 @@ const NewRequest = () => {
         <div className="">
           <SideNav itemNum={"1"} />
         </div>
-        <div className="main-div w-full py-6 px-8">
+        <div className="main-div ml-80 w-full py-6 px-8">
           <Header currentPage={currentPage} />
           <AddItems />
         </div>
@@ -20,3 +20,5 @@ const NewRequest = () => {
     </div>
   );
 };
+
+export default NewRequest;
