@@ -1,15 +1,13 @@
-import './App.css';
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
-import NewRequest from './pages/NewRequest'
-import TrackRequest from './pages/TrackRequest'
-import TrackRequestItem from './pages/TrackRequestItem'
-import Settings from './pages/Settings'
-import Notifications from './pages/Notifications'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom"
+import "./App.css";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import NewRequest from "./pages/NewRequest";
+import TrackRequest from "./pages/TrackRequest";
+import TrackRequestItem from "./pages/TrackRequestItem";
+import Settings from "./pages/Settings";
+import Notifications from "./pages/Notifications";
+import Admin from "./pages/Admin";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +37,11 @@ const router = createBrowserRouter([
   {
     path: "/notifications",
     element: <Notifications />,
-  }
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+  },
 ]);
 
 function App() {

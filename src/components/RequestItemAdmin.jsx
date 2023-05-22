@@ -1,23 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import AddButton from './AddButton'
 
-const RequestItem = ({id}) => {
-
-    const newData = () => {
-        fetch(`http://localhost:8000/request?id=${id}`)
-        .then(data => data.json())
-        .then(res => {
-
-            return res
-
-        })
-        .catch(error => console.error(error))
-    }
-
-    const val = newData()
-
-    console.log(val)
-    
+const RequestItemAdmin = () => {
 
   return (
     <div>
@@ -32,15 +16,9 @@ const RequestItem = ({id}) => {
                             <p className="font-semibold" style={{color: '#5B5B5B'}}>Item(s):</p>
                      </div>
                         <div className="item-detail" style={{color: '#5B5B5B'}}>
-                            {
-                                // requestData.items.map(data => {
-                                //     <p className='mb-2'>* {data.item} x{2}</p>
-                                // })
-                            }
+                            <p className='mb-2'>* Laptop x2</p>
                             <p className='mb-2'>* ATM cards x2,000</p>
                             <p className='mb-2'>* A4 Papers (Cartons) x5</p>
-                            <p className='mb-2'>* Office Chairs x2</p>
-                            <p className='mb-2'>* Office Chairs x2</p>
                             <p className='mb-2'>* Office Chairs x2</p>
                         </div>
                     </div>
@@ -61,7 +39,7 @@ const RequestItem = ({id}) => {
                             <p className="font-semibold" style={{color: '#5B5B5B'}}>Comments:</p>
                         </div>
                         <div className="item-detail" style={{color: '#5B5B5B'}}>
-                            <p className='mb-2'>{newData.comment}</p>
+                            <p className='mb-2'>Package confirmed by Head of Branch Services</p>
                         </div>
                     </div>
                     <div className="section-item flex">
@@ -96,12 +74,17 @@ const RequestItem = ({id}) => {
             <form action="" class="px-5">
                 <div className="form-group mt-3 mb-2">
                     <div className="form-item flex flex-col mr-4">
-                        <label htmlFor="items" className='font-semibold mb-2' style={{color: '#5B5B5B'}}>Remarks:</label>
+                        <label htmlFor="items" className='font-semibold mb-2' style={{color: '#5B5B5B'}}>Comments:</label>
                         <textarea name="" id="" cols="40" rows="5" className='w-textarea p-4 border border-rounded bg-white'></textarea>
                     </div>
                 </div>
-                <div className="form-group">
-                    <AddButton btnText={"Acknowledge Receipt"}/>
+                <div className="flex">
+                    <div className="form-group mr-4">
+                        <AddButton btnText={"Approve Request"} btnColor={"bg-secondary"}/>
+                    </div>
+                    <div className="form-group">
+                        <AddButton btnText={"Reject Request"} btnColor={"bg-red-600 hover:bg-red-700"} />
+                    </div>
                 </div>
             </form>
         </div>
@@ -109,4 +92,4 @@ const RequestItem = ({id}) => {
   )
 }
 
-export default RequestItem
+export default RequestItemAdmin
