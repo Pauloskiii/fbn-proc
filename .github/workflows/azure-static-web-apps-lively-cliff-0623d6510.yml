@@ -32,7 +32,7 @@ jobs:
           run: 'npm run build:ci'
           app_build_command: 'npm run build:ci'
           
-          api_build_command: 'npm run build-api-prod'
+          api_build_command: 'npm run build:ci'
           output_location: "build" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
