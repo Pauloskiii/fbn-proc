@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "staffId": "SN123456",
+      "name": "Paul Zekeri",
+      "email": "admin1@gmail.com",
+      "password": "test123",
+      "solId": "229",
+      "branchLocation": "Iganmu",
+      "branchState": "Lagos",
+      "role": "ADMIN"
+    },
+    {
+      "id": "2",
+      "staffId": "SN654321",
+      "name": "Emmanuel Doneziba",
+      "email": "hbs1@gmail.com",
+      "password": "test123",
+      "solId": "229",
+      "branchLocation": "Iganmu",
+      "branchState": "Lagos",
+      "role": "HBS"
+    },
+    {
+      "id": "3",
+      "staffId": "SN567890",
+      "name": "Samson Babafemi",
+      "email": "admin2@gmail.com",
+      "password": "test123",
+      "solId": "123",
+      "branchLocation": "Agbara",
+      "branchState": "Ogun",
+      "role": "ADMIN"
+    },
+    {
+      "id": "4",
+      "staffId": "SN098765",
+      "name": "Olotu Okoh",
+      "email": "hbs2@gmail.com",
+      "password": "test123",
+      "solId": "123",
+      "branchLocation": "Agbara",
+      "branchState": "Ogun",
+      "role": "HBS"
+    },
+    {
+      "id": "5",
+      "staffId": "SN001122",
+      "name": "Temitope Ajibola",
+      "email": "proc@gmail.com",
+      "password": "test123",
+      "solId": "001",
+      "branchLocation": "Iganmu",
+      "branchState": "Lagos",
+      "role": "PROC"
+    }
+  ],
+  "request": [
+    {
+      "items": [
+        {
+          "item": "Laptop",
+          "quantity": "4"
+        },
+        {
+          "item": "A4 Papers",
+          "quantity": "3"
+        },
+        {
+          "item": "Withdrawal Slips",
+          "quantity": "7"
+        }
+      ],
+      "status": "pending",
+      "approver": "",
+      "date": 1684747099937,
+      "solId": "229",
+      "branchLocation": "Iganmu",
+      "branchState": "Lagos",
+      "hbsApproval": false,
+      "cosmApproval": false,
+      "initiatedBy": "SN123456",
+      "initiatorName": "Paul Zekeri",
+      "comment": "This is the comment",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "item": "Laptop",
+          "quantity": "3"
+        },
+        {
+          "item": "A4 Papers",
+          "quantity": "6"
+        },
+        {
+          "item": "Withdrawal Slips",
+          "quantity": "9"
+        }
+      ],
+      "status": "pending",
+      "approver": "",
+      "date": 1684827871351,
+      "solId": "123",
+      "branchLocation": "Agbara",
+      "branchState": "Ogun",
+      "hbsApproval": false,
+      "cosmApproval": false,
+      "initiatedBy": "SN567890",
+      "initiatorName": "Samson Babafemi",
+      "comment": "This is the comment",
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "item": "Laptop",
+          "quantity": "2"
+        },
+        {
+          "item": "Printer",
+          "quantity": "2"
+        },
+        {
+          "item": "A4 Papers",
+          "quantity": "2"
+        }
+      ],
+      "status": "pending",
+      "approver": "",
+      "date": 1684833568075,
+      "solId": "229",
+      "branchLocation": "Iganmu",
+      "branchState": "Lagos",
+      "hbsApproval": false,
+      "cosmApproval": false,
+      "initiatedBy": "SN123456",
+      "initiatorName": "Paul Zekeri",
+      "comment": "Please treat as urgent",
+      "id": 4
+    }
+  ]
+}
