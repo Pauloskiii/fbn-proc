@@ -7,16 +7,54 @@ import {
 } from "react-icons/fa";
 
 const Cards = () => {
+  const [requestNum, setRequestNum] = useState(0);
+  const [pending, setPending] = useState([]);
+  const [approved, setApproved] = useState([]);
+  const [rejected, setRejected] = useState([]);
+
+  const storedElements = localStorage.getItem("logindata");
+
+  const role = JSON.parse(storedElements).role;
+
+  const userData = JSON.parse(localStorage.getItem("logindata"));
+
+  //   useEffect(() => {
+  //     fetch(`http://localhost:8082/login`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         staffId: userData.staffId,
+  //       }),
+  //     })
+  //       .then((data) => data.json())
+  //       .then((res) => {
+  //         //   setRequestNum(res)
+  //         //   setPending(res.filter(result => result.status === "pending"))
+  //         //   setApproved(res.filter(result => result.status === "approved"))
+  //         //   setRejected(res.filter(result => result.status === "rejected"))
+  //         console.log(res);
+  //       })
+  //       .catch((error) => console.error(error));
+  //   }, []);
+
   return (
     <div>
-      <div className="card-box flex justify-between mb-8">
-        <div className="card-element p-5 bg-primary text-white w-card border-rounded">
-          <div className="card-number">
-            <p className="text-5xl">4</p>
+      <div
+        className={`card-box flex ${
+          role === "ADMIN" ? "justify-between" : ""
+        } mb-8`}
+      >
+        <div className="card-element flex p-5 py-6 bg-primary text-white w-card border border-rounded mr-9">
+          <div className="form-el mr-6">
+            <div className="icon-circle bg-white p-5 rounded-full">
+              <FaPaperPlane className="text-2xl text-primary" />
+            </div>
           </div>
           <div className="form-el">
             <div className="card-number text-white">
-              <p className="text-4xl font-bold">{requestNum.length}</p>
+              <p className="text-4xl font-bold">{userData.allMyRequest}</p>
             </div>
             <div className="card-text text-white">
               <p className="text-lg">
@@ -25,23 +63,34 @@ const Cards = () => {
             </div>
           </div>
         </div>
-        <div className="card-element p-5 bg-primary text-white w-card border-rounded">
-          <div className="card-number">
-            <p className="text-5xl">4</p>
-          </div>
-          <div className="card-text">
-            <p className="text-lg">
-              <span className="font-semibold">Approved</span> Request
-            </p>
-          </div>
-        </div>
-        <div className="card-element p-5 bg-primary text-white w-card border-rounded">
-          <div className="card-number">
-            <p className="text-5xl">4</p>
+        <div className="card-element flex p-5 py-6 bg-primary w-card border border-rounded mr-9">
+          <div className="form-el mr-6">
+            <div className="icon-circle bg-green-600 p-5 rounded-full">
+              <FaCheck className="text-2xl text-white" />
+            </div>
           </div>
           <div className="form-el">
             <div className="card-number text-white">
-              <p className="text-4xl font-bold">{pending.length}</p>
+              <p className="text-4xl font-bold">
+                {userData.allApprovedRequest}
+              </p>
+            </div>
+            <div className="card-text text-white">
+              <p className="text-lg">
+                <span className="font-semibold">Approved</span> Request
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="card-element flex p-5 py-6 bg-primary w-card border border-rounded mr-9">
+          <div className="form-el mr-6">
+            <div className="icon-circle bg-secondary p-5 rounded-full">
+              <FaHourglassHalf className="text-2xl text-white" />
+            </div>
+          </div>
+          <div className="form-el">
+            <div className="card-number text-white">
+              <p className="text-4xl font-bold">{userData.allPendingRequest}</p>
             </div>
             <div className="card-text text-white">
               <p className="text-lg">
@@ -58,7 +107,9 @@ const Cards = () => {
           </div>
           <div className="form-el">
             <div className="card-number text-white">
-              <p className="text-4xl font-bold">{rejected.length}</p>
+              <p className="text-4xl font-bold">
+                {userData.allRejectedRequest}
+              </p>
             </div>
             <div className="card-text text-white">
               <p className="text-lg">

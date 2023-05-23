@@ -40,32 +40,59 @@ const Login = () => {
       setPassError(false);
     }
 
-    const userLogin = [
-      {
-        email: "admin@gmail.com",
-        password: "test123",
-        name: "Atolagbe Ayobami",
-        role: "ADMIN",
-        staffId: "SN12345678",
-      },
-      {
-        email: "hbs@gmail.com",
-        password: "test123",
-        name: "Emmanuel Afolayan",
-        role: "HBS",
-        staffId: "SN12345678",
-      },
-      {
-        email: "proc@gmail.com",
-        password: "test123",
-        name: "Temitope Fasoranti",
-        role: "PROC",
-        staffId: "SN12345678",
-      },
-    ];
-
     if (formData.password !== "" && formData.email !== "") {
-      navigate("/dashboard");
+      // if(userLogin.some(user => user.email === formData.email && user.password === formData.password)){
+
+      //     userLogin.some(user => {
+      //         if(user.email === formData.email && user.password === formData.password){
+
+      //             let userData;
+
+      //             userData = {
+      //                 email: user.email,
+      //                 name: user.name,
+      //                 role: user.role,
+      //                 staffId: user.staffId
+      //             }
+
+      //             localStorage.setItem('logindata', JSON.stringify(userData));
+
+      //             dispatch(setLogin(userData))
+
+      //             console.log("user exist")
+
+      //             navigate('/dashboard')
+      //         }
+
+      //     })
+
+      // }else{
+      //     setInvalidLogin(true);
+      // }
+
+      fetch("http://localhost:8082/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }), // body data type must match "Content-Type" header
+      })
+        .then((data) => data.json())
+        .then((res) => {
+          let userData = res;
+
+          localStorage.setItem("logindata", JSON.stringify(userData));
+
+          dispatch(setLogin(userData));
+
+          console.log(res);
+
+          navigate("/dashboard");
+        })
+        .catch((error) => console.error(error));
     }
   };
 
